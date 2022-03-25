@@ -1,0 +1,39 @@
+<%- include('../partials/header'); %>
+
+<main class="main main-single container">
+    <h2 class="main-h2 text-center"><%= name %></h2>
+
+
+    <!-- prev and next -->
+
+    <section class="prev-and-next d-flex justify-content-around">
+        <p class="prev">
+            <% if(data.id > 1) { %>
+                <a href="/presidents/<%= data.id - 1 %>" class="btn btn-large">Prev</a>
+            <% } %>
+        </p>
+        <p class="next">
+            <% if(data.id <= count) { %>
+                <a href="/presidents/<%= data.id + 1 %>" class="btn btn-large" >Next</a>
+            <% } %>
+        </p>
+    </section>
+    <section class="section section-single d-flex justify-content-center">
+
+        <figure class="figure figure-single">
+            <img src="<%= data.photo %>" alt="<%= data.title %>" class="img-fluid pb-5 single-img">
+            <figcaption class="figcaption text-white"> President Name: <%= data.name %></figcaption>
+            <figcaption class="figcaption text-white"> Years In Office: <%= data.yearsInOffice %></figcaption>
+            <figcaption class="figcaption text-white"> Vice President(s): <ul class="single-ul list-group">
+                <% for(let i = 0; i < item.vicePresidents.length; i++) { %>
+                    <li class="single-li list-group-item"><%= item.vicePresidents[i] %></li>
+                <% } %>
+            </ul>
+            <figcaption class="figcaption text-white"> Ordinal: <%= data.ordinal %>
+            </figcaption>
+            
+        </figure>
+    </section>
+</main>
+
+<%- include('../partials/footer'); %>

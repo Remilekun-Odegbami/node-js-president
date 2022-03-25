@@ -1,0 +1,30 @@
+<%- include('../partials/header'); %>
+
+<main class="main main-presidents container">
+    <h2 class="text-center text-capitalize">Welcome to my <%= name %></h2>
+    <section class="section section-pressidents mt-5">
+        <div class="row">
+            <h3 class="text-center pb-5"> To read more about a president, click on the images or texts below</h3>
+            <% data.forEach(item => { %>
+                <div class="col-md-4">
+                    <figure class="figure figure-president">
+                        <a href="/presidents/<%= item.id %>">
+                            <img src="<%= item.photo %>" alt="<%= item.title %>" class="img-fluid fig-image">
+                            <figcaption class="figcaption figcap-president"> <span class="text-danger"> President Name: </span>
+                                <%= item.name %></figcaption>
+                        </a>
+                        <p class="figcaption text-danger"> Vice President(s):
+                            <ul class="single-ul list-group">
+                                <% for(let i = 0; i < item.vicePresidents.length; i++) { %>
+                                    <li class="single-li list-group-item"><%= item.vicePresidents[i] %></li>
+                                <% } %>
+                            </ul>
+                        </p>
+                    </figure>
+                </div>
+            <% }) %>
+        </div>
+    </section>
+</main>
+
+<%- include('../partials/footer'); %>
