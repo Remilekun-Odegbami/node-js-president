@@ -1,8 +1,6 @@
 <%- include('../partials/header'); %>
 
 <main class="main main-single container">
-    <h2 class="main-h2 text-center"><%= name %></h2>
-
 
     <!-- prev and next -->
 
@@ -21,7 +19,8 @@
     <section class="section section-single d-flex justify-content-center">
 
         <figure class="figure figure-single">
-            <img src="<%= data.photo %>" alt="<%= data.title %>" class="img-fluid pb-5 single-img">
+            <img src="<%= data.photo %>" alt="<%= data.title %>" class="img-fluid pb-5 single-img"><figcaption class="figcaption text-white"> Ordinal: <%= data.ordinal %>
+            </figcaption>
             <figcaption class="figcaption text-white"> President Name: <%= data.name %></figcaption>
             <figcaption class="figcaption text-white"> Years In Office: <%= data.yearsInOffice %></figcaption>
             <figcaption class="figcaption text-white"> Vice President(s): <ul class="single-ul list-group">
@@ -29,8 +28,7 @@
                     <li class="single-li list-group-item"><%= data.vicePresidents[i] %></li>
                 <% } %>
             </ul>
-            <figcaption class="figcaption text-white"> Ordinal: <%= data.ordinal %>
-            </figcaption>
+            
             
         </figure>
     </section>
